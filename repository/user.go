@@ -2,10 +2,11 @@ package repository
 
 import (
 	"authentication-modules/config"
+	"authentication-modules/dto"
 	"authentication-modules/models"
 )
 
-func CreateUser(req models.ReqUser) (*models.User, error) {
+func CreateUser(req dto.ReqUser) (*models.User, error) {
 	newUser := req.ToUser()
 	if err := config.DB.Debug().Create(&newUser).Error; err != nil {
 		return nil, err

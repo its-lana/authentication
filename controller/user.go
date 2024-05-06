@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"authentication-modules/models"
+	"authentication-modules/dto"
 	"authentication-modules/repository"
 	"net/http"
 
@@ -9,7 +9,7 @@ import (
 )
 
 func RegisterUser(c *gin.Context) {
-	var reqUser models.ReqUser
+	var reqUser dto.ReqUser
 	err := c.Bind(&reqUser)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"message": "binding error, bad request"})
